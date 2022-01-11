@@ -302,14 +302,14 @@ public class UserRegistrationApplicationTests {
     public void deleteUserById_notFound() throws Exception {       
 
         mockMvc.perform(MockMvcRequestBuilders
-                .delete("/user/deleteUser/15")
+                .delete("/user/deleteUser/25")
                 .contentType(MediaType.APPLICATION_JSON))
         		.andExpect(status().isBadRequest())
                 .andExpect(result ->
                         assertTrue(result.getResolvedException() 
                         		instanceof InvalidRequestException))
                 .andExpect(result ->
-                assertEquals("User with ID 15 does not exist.", 
+                assertEquals("User with ID 25 does not exist.", 
                 		result.getResolvedException().getMessage()));
     }
 }
