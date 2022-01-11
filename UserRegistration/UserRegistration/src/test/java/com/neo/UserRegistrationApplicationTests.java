@@ -31,7 +31,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class UserRegistrationApplicationTests {
     
-	@Autowired
+    @Autowired
     MockMvc mockMvc;
 	
     @Autowired
@@ -164,7 +164,7 @@ public class UserRegistrationApplicationTests {
     @Test
     public void createUser_success() throws Exception {
         User newUser = User.builder()
-           	       .firstName("Pavithra")
+           	   .firstName("Pavithra")
                    .surname("Umesh")
                    .address("Bangalore")
                    .pinCode(560003)
@@ -204,8 +204,8 @@ public class UserRegistrationApplicationTests {
     @Test
 	public void updateUserRecord_success() throws Exception{
 		User updatedUser = User.builder()
-				 .userId(1)
-         	     .firstName("Pavithra")
+		 .userId(1)
+         	 .firstName("Pavithra")
                  .surname("Umesh")
                  .address("Bangalore")
                  .pinCode(560003)
@@ -233,8 +233,7 @@ public class UserRegistrationApplicationTests {
     @Test
 	public void updateUserRecord_nullId() throws Exception{
 		User updatedUser = User.builder()
-				.userId(1)
-        	    .firstName("Pavithra")
+                .firstName("Pavithra")
                 .surname("Umesh")
                 .address("Bangalore")
                 .pinCode(560003)
@@ -261,13 +260,13 @@ public class UserRegistrationApplicationTests {
     @Test
     public void updateUserRecord_recordNotFound() throws Exception {
 		User updatedUser = User.builder()
-				.userId(1)
-        	    .firstName("Pavithra")
-                .surname("Umesh")
-                .address("Bangalore")
-                .pinCode(560003)
-                .dob(2000-1-25)
-                .doj(2021-8-11)
+		.userId(10)
+        	.firstName("Varun")
+                .surname("Vamshi")
+                .address("Tumkur")
+                .pinCode(555555)
+                .dob(1989-6-27)
+                .doj(2010-12-29)
                 .build();      
 
 
@@ -282,7 +281,7 @@ public class UserRegistrationApplicationTests {
                     assertTrue(result.getResolvedException() 
                     		instanceof InvalidRequestException))
                 .andExpect(result ->
-                	assertEquals("User with ID 5 not found.", 
+                	assertEquals("User with ID 10 not found.", 
                 			result.getResolvedException().getMessage()));
     }
 	    	 
